@@ -1,6 +1,6 @@
 package com.heystyles.file.api.config;
 
-/*
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -19,9 +19,9 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = {"com.heystyles.file.api.dao"})
-*/
+
 public class JpaConfig {
-/*
+
     private static final String PU_NAME = "heystyles-file-pu";
 
     @Primary
@@ -40,5 +40,4 @@ public class JpaConfig {
     public PlatformTransactionManager transactionManager(@Qualifier("entityManagerFactory") EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
- */
 }
