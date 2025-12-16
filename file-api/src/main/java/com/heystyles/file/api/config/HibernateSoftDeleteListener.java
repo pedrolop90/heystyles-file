@@ -2,14 +2,14 @@ package com.heystyles.file.api.config;
 
 import com.heystyles.common.types.SoftDeletable;
 import org.hibernate.HibernateException;
+import org.hibernate.event.internal.DefaultDeleteEventListener;
 import org.hibernate.event.spi.DeleteEvent;
-import org.hibernate.jpa.event.internal.core.JpaDeleteEventListener;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
 @Component
-public class HibernateSoftDeleteListener extends JpaDeleteEventListener {
+public class HibernateSoftDeleteListener extends DefaultDeleteEventListener {
 
     @Override
     public void onDelete(DeleteEvent event, Set transientEntities) throws HibernateException {

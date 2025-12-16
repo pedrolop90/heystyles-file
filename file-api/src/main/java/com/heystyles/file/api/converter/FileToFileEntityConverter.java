@@ -10,8 +10,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 import static org.springframework.context.i18n.LocaleContextHolder.getLocale;
 
 @Component
@@ -30,7 +28,7 @@ public class FileToFileEntityConverter implements Converter<File, FileEntity> {
             document = new FileEntity();
         }
         else {
-            document = Optional.ofNullable(fileDao.findOne(bean.getId()))
+            document = fileDao.findById(bean.getId())
                     .orElseThrow(() -> APIExceptions.objetoNoEncontrado(
                             messageSource.getMessage(MessageKeys.FILE_NOT_FOUND,
                                     new String[]{String.valueOf(bean.getId())},
