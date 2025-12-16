@@ -1,6 +1,7 @@
 package com.heystyles.file.api.config;
 
 import com.heystyles.common.response.ClientResponseErrorHandler;
+import java.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +17,8 @@ public class ClientConfig {
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
         return restTemplateBuilder
-                .setConnectTimeout(clientProperties.getConnectionTimeout())
-                .setReadTimeout(clientProperties.getReadTimeout())
+                .setConnectTimeout(Duration.ofMillis(clientProperties.getConnectionTimeout()))
+                .setReadTimeout(Duration.ofMillis(clientProperties.getReadTimeout()))
                 .errorHandler(new ClientResponseErrorHandler())
                 .build();
     }

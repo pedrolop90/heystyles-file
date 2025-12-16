@@ -2,7 +2,7 @@ package com.heystyles.file.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.heystyles.common.types.DomainBean;
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class File  extends DomainBean<Long> {

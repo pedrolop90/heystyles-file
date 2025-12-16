@@ -14,7 +14,7 @@ public class AuditConfig {
 
     @Bean
     public AuditorAware<String> auditorAware() {
-        return () -> Optional.ofNullable(HttpRequestContextHolder.getUsuario()).orElse("system");
+        return () -> Optional.of(Optional.ofNullable(HttpRequestContextHolder.getUsuario()).orElse("system"));
     }
 
 }

@@ -3,7 +3,6 @@ package com.heystyles.file.api.config;
 import org.hibernate.event.service.spi.EventListenerRegistry;
 import org.hibernate.event.spi.EventType;
 import org.hibernate.internal.SessionFactoryImpl;
-import org.hibernate.jpa.event.internal.jpa.CallbackRegistryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +25,6 @@ public class HibernateListenerConfig {
         EventListenerRegistry registry = sessionFactory.getServiceRegistry().getService(EventListenerRegistry.class);
         registry.getEventListenerGroup(EventType.DELETE).clear(); // We need to replace the listener
         registry.getEventListenerGroup(EventType.DELETE).appendListener(softDeleteListener);
-        softDeleteListener.injectCallbackRegistry(new CallbackRegistryImpl());
     }
 
 }
